@@ -1,35 +1,38 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/questions.dart';
+
+import './questions.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(_MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class _MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionsIndex = 0;
-  var answerIndex = 0;
+class _MyAppState extends State<_MyApp> {
+  var _questionsIndex = 0;
+  var _answerIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionsIndex = questionsIndex + 1;
-      answerIndex = answerIndex + 1;
+      _questionsIndex = _questionsIndex + 1;
+      _answerIndex = _answerIndex + 1;
     });
-    print(questionsIndex);
-    print(answerIndex);
+    print(_questionsIndex);
+    print(_answerIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    var questions = ['1+1=?', '1+3=?', '1+5=?', '1,19=?'];
-    var answers = ['2', '4', '6', '20'];
+    var _questions = ['1+1=?', '1+3=?', '1+5=?', '1+19=?'];
+    var _answers = ['2', '4', '6', '20'];
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
@@ -37,24 +40,24 @@ class MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              Text(
-                questions[questionsIndex],
+              Question(
+                _questions[_questionsIndex],
               ),
               RaisedButton(
-                child: Text(answers[answerIndex]),
-                onPressed: answerQuestion,
+                child: Text(_answers[_answerIndex]),
+                onPressed: _answerQuestion,
               ),
               RaisedButton(
-                child: Text(answers[answerIndex]),
-                onPressed: answerQuestion,
+                child: Text(_answers[_answerIndex]),
+                onPressed: _answerQuestion,
               ),
               RaisedButton(
-                child: Text(answers[answerIndex]),
-                onPressed: answerQuestion,
+                child: Text(_answers[_answerIndex]),
+                onPressed: _answerQuestion,
               ),
               RaisedButton(
-                child: Text(answers[answerIndex]),
-                onPressed: answerQuestion,
+                child: Text(_answers[_answerIndex]),
+                onPressed: _answerQuestion,
               ),
             ],
           )),
